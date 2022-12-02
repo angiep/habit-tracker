@@ -1,0 +1,42 @@
+.MonthDisplay {
+    margin: 0 auto;
+    width: 1400px;
+}
+
+.Calendar {
+    width: 1400px;
+    height: 1000px;
+    border: 0.5px solid white;
+    margin: 0 auto;
+}
+
+.Calendar-day-names {
+    display: flex;
+}
+
+.Calendar-day-name {
+    flex: 1;
+    border: 0.5px solid white;
+    box-sizing: border-box;
+    text-align: center;
+    height: 50px;
+    line-height: 45px;
+}
+
+.Calendar-week {
+    display: flex;
+    align-items: stretch;
+}
+
+.Calendar-day {
+    flex: 1;
+    border: 0.5px solid white;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.habit {
+    display: flex;
+    align-items: flex-start;
+}
