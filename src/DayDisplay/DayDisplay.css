@@ -1,0 +1,7 @@
+.DayDisplay {
+    flex: 1;
+    border: 0.5px solid white;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 15px;
+}

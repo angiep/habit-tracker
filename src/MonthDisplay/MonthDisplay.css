@@ -27,16 +27,3 @@
     display: flex;
     align-items: stretch;
 }
-
-.Calendar-day {
-    flex: 1;
-    border: 0.5px solid white;
-    height: 200px;
-    box-sizing: border-box;
-    padding: 15px;
-}
-
-.habit {
-    display: flex;
-    align-items: flex-start;
-}

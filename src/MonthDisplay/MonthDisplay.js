@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import HabitCheckbox from '../HabitCheckbox/HabitCheckbox';
+import DayDisplay from '../DayDisplay/DayDisplay';
 import './MonthDisplay.css';
 
 function generateCalendarWeeks(numberOfDays) {
@@ -13,15 +13,13 @@ function generateCalendarWeeks(numberOfDays) {
   return weeks;
 }
 
-function MonthDisplay({month, year, habits = []}) {
+function MonthDisplay({year, month, habits, completions, dispatch}) {
   const lastDayOfMonth = new Date(year, month + 1, 0);
   const monthName = lastDayOfMonth.toLocaleString('default', { month: 'long' });
   const numberOfDays = lastDayOfMonth.getDate();
   const weeks = generateCalendarWeeks(numberOfDays);
   const weekDayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-  // TODO: setup completions data
-  // TODO: setup checking and unchecking (connect to local storage)
   return (
     <div className="MonthDisplay">
       <h2>{monthName} {year}</h2>
@@ -34,10 +32,15 @@ function MonthDisplay({month, year, habits = []}) {
         {weeks.map((week, weekIndex) =>
           <div className="Calendar-week" key={`week-${weekIndex}`}>
             {week.map((day, dayIndex) =>
-              <div className="Calendar-day" key={`day-${day}`}>
-                <h3>{day}</h3>
-                {habits.map((habit) => <HabitCheckbox habit={habit} key={`habit-${habit.id}`}/>)}
-              </div>
+              <DayDisplay
+                year={year}
+                month={month}
+                day={day}
+                habits={habits}
+                completions={completions}
+                key={`day-${dayIndex}`}
+                dispatch={dispatch}
+              />
             )}
           </div>
         )}
@@ -47,9 +50,11 @@ function MonthDisplay({month, year, habits = []}) {
 }
 
 MonthDisplay.propTypes = {
-  month: PropTypes.number,
   year: PropTypes.number,
-  habits: PropTypes.array
+  month: PropTypes.number,
+  habits: PropTypes.array,
+  completions: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 export default MonthDisplay;
