@@ -3,7 +3,7 @@ import MonthDisplay from './MonthDisplay';
 import { isHabitCompletedForDate } from './MonthDisplay';
 
 test('displays days of week', () => {
-  render(<MonthDisplay month={0} year={2023} habits={[]} completions={{}} />);
+  render(<MonthDisplay month={0} year={2023} habits={[]} completions={{}} dispatch={()=> {}} />);
   expect(screen.getByText('Sunday')).toBeInTheDocument();
   expect(screen.getByText('Monday')).toBeInTheDocument();
   expect(screen.getByText('Tuesday')).toBeInTheDocument();

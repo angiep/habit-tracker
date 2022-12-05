@@ -28,9 +28,11 @@ function HabitTracker() {
           completions: addCompletions(state.completions, action.data)
         }
       case 'REMOVE_COMPLETION':
+        // TODO: this is still slightly buggy with empty arrays not going away
+        const editedCompletions = removeCompletions(state.completions, action.data);
         return {
           ...state,
-          completions: removeCompletions(state.completions, action.data)
+          completions: editedCompletions
         }
       default:
         throw new Error(`Unhandled action type: ${action.type}`);

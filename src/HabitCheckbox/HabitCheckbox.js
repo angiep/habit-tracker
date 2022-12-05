@@ -3,11 +3,11 @@ import './HabitCheckbox.css';
 
 function HabitCheckbox({habit, isCompleted, date, dispatch}) {
   const {id, title} = habit
-  const htmlId = `habit-${id}`;
+  const htmlId = `habit-${id}-${date}`;
 
   const handleChange = (props) => {
     const data = { date, habit };
-
+    
     if (!isCompleted) {
       dispatch({ type: 'ADD_COMPLETION', data });
       return;

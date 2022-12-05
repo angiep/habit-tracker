@@ -18,7 +18,7 @@ function DayDisplay({year, month, day, habits, completions, dispatch}) {
           habit={habit}
           isCompleted={isHabitCompletedForDate(dateFormatted, habit, completions)}
           date={dateFormatted}
-          key={`habit-${habit.id}`}
+          key={`habit-${habit.id}-${dateFormatted}`}
           dispatch={dispatch}
         />
       )}
